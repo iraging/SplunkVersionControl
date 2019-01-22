@@ -27,6 +27,8 @@ useLocalAuth = <boolean>
 * do not use the srcUsername/srcPassword, use the session_key of the user running the modular input instead (works on localhost only) (true/false)
 remoteAppName = <value>
 * defaults to SplunkVersionControl, this app needs to contain the savedsearches and potentially the splunkversioncontrol_globalexclusionlist
+unset_LD_LIBRARY_PATH = <boolean>
+* run an os.unsetenv('LD_LIBRARY_PATH') to handle an edge case with git/SSH on particular Linux versions, defaults to false (true/false)
 
 [splunkversioncontrol_restore://<name>]
 destURL = <value>
@@ -47,3 +49,5 @@ useLocalAuth = <boolean>
 * do not use the srcUsername/srcPassword, use the session_key of the user running the modular input instead (works on localhost only) (true/false)
 remoteAppName = <value>
 * defaults to SplunkVersionControl, this app needs to contain the savedsearches and potentially the splunkversioncontrol_globalexclusionlist
+unset_LD_LIBRARY_PATH = <boolean>
+* run an os.unsetenv('LD_LIBRARY_PATH') to handle an edge case with git/SSH on particular Linux versions, defaults to false (true/false)

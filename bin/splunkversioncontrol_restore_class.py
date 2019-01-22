@@ -838,6 +838,14 @@ class SplunkVersionControlRestore:
             if debugMode == "true" or debugMode == "t":
                 logging.getLogger().setLevel(logging.DEBUG)
         
+        if 'unset_LD_LIBRARY_PATH' in config:
+            unsetLDPath = config['unset_LD_LIBRARY_PATH'].lower()
+            if unsetLDPath == "true" or unsetLDPath == "t":
+                if 'LD_LIBRARY_PATH' in os.environ:
+                    logger.debug("LD_LIBRARY_PATH is %s and unset_LD_LIBRARY_PATH is set to true, will unset the env variable" % (os.environ['LD_LIBRARY_PATH']))
+                    os.unsetenv('LD_LIBRARY_PATH')
+                    logger.info("Unset LD_LIBRARY_PATH in environment")
+        
         self.stanzaName = config["name"].replace("splunkversioncontrol_restore://", "")
         useLocalAuth = False
         if 'useLocalAuth' in config:

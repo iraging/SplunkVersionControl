@@ -71,6 +71,12 @@ SCHEME = """<scheme>
                 <description>defaults to SplunkVersionControl, this app needs to contain the savedsearches and potentially the splunkversioncontrol_globalexclusionlist</description>
                 <required_on_create>false</required_on_create>
             </arg>
+            <arg name="unset_LD_LIBRARY_PATH">
+                <title>unset_LD_LIBRARY_PATH</title>
+                <description>run an os.unsetenv('LD_LIBRARY_PATH') to handle an edge case with git/SSH on particular Linux versions, defaults to false (true/false)</description>
+                <validation>is_bool('useLocalAuth')</validation>
+                <required_on_create>false</required_on_create>
+            </arg>
         </args>
     </endpoint>
 </scheme>
